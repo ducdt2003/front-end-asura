@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>ManhwaScans</title>
+  </head>
+  <body>
+    
+    <!-- Header -->
+    <header>
+      <nav class="navbar navbar-expand-lg bg-primary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img
+              src="https://asuracomic.net/images/logo.webp"
+              alt="Avatar"
+              width="38"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Bookmarks</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link text-white" href="#">Comics</a>
+              </li>
+            </ul>
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+              />
+              <button class="btn btn-light" type="submit">🔍</button>
+            </form>
+            <button class="btn btn-light ms-3">Login</button>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Layout -->
+    
+    <div class="container mt-4">
+      <div class="row">
+        <!-- Bên trái: Featured Comics + Popular Today + Latest Updates -->
+        <div class="col-md-8">
+          <!-- Featured Comics (Slider) -->
+          <section class="featured-slider mb-4">
+            <h2 class="text-primary">📢 Featured Comics</h2>
+            <div
+              id="comicCarousel"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    src="https://gg.asuracomic.net/storage/media/79/1be5e62f.webp"
+                    class="d-block w-100"
+                    alt="Comic 1"
+                  />
+                  <div class="carousel-caption">
+                    <h5>Tên Truyện 1</h5>
+                    <p>Thể loại: Action, Fantasy</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="https://gg.asuracomic.net/storage/media/226/conversions/8786309e-thumb-small.webp"
+                    class="d-block w-100"
+                    alt="Comic 2"
+                  />
+                  <div class="carousel-caption">
+                    <h5>Tên Truyện 2</h5>
+                    <p>Thể loại: Adventure, Martial Arts</p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#comicCarousel"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon"></span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#comicCarousel"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon"></span>
+              </button>
+            </div>
+          </section>
+
+
+
+          <!-- Popular Today -->
+          <section class="popular-today">
+            <div class="container mt-5">
+                <h2 class="mb-4">Popular Today</h2>
+                <div class="scroll-container">
+                    <div class="card">
+                        <img src="https://gg.asuracomic.net/storage/media/79/1be5e62f.webp" class="card-img-top" alt="Nano Machine" />
+                        <div class="card-body">
+                            <h5 class="card-title">Nano Machine</h5>
+                            <p class="card-text">Chương 254</p>
+                            <p class="card-rating">⭐⭐⭐⭐⭐9.7</p>
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <img src="https://gg.asuracomic.net/storage/media/155/conversions/e43c72fb-thumb-small.webp" class="card-img-top" alt="Nano Machine" />
+                        <div class="card-body">
+                            <h5 class="card-title">Nano Machine</h5>
+                            <p class="card-text">Chương 254</p>
+                            <p class="card-rating">⭐⭐⭐⭐⭐9.7</p>
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <img src="https://gg.asuracomic.net/storage/media/267698/conversions/01JJST2HQ54CXEV2YQN2621FTB-thumb-small.webp" class="card-img-top" alt="Nano Machine" />
+                        <div class="card-body">
+                            <h5 class="card-title">Nano Machine</h5>
+                            <p class="card-text">Chương 254</p>
+                            <p class="card-rating">⭐⭐⭐⭐⭐9.7</p>
+                        </div>
+                    </div>
+        
+                    <div class="card">
+                        <img src="https://gg.asuracomic.net/storage/media/243337/conversions/01J9AHYZQ90WM6831SZ98MGN55-thumb-small.webp" class="card-img-top" alt="Nano Machine" />
+                        <div class="card-body">
+                            <h5 class="card-title">Nano Machine</h5>
+                            <p class="card-text">Chương 254</p>
+                            <p class="card-rating">⭐⭐⭐⭐⭐9.7</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://gg.asuracomic.net/storage/media/298/conversions/01J7TV2G7719CVSTSW9T9M6F31-thumb-small.webp" class="card-img-top" alt="Nano Machine" />
+                        <div class="card-body">
+                            <h5 class="card-title">Nano Machine</h5>
+                            <p class="card-text">Chương 254</p>
+                            <p class="card-rating">⭐⭐⭐⭐⭐9.7</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://gg.asuracomic.net/storage/media/257722/conversions/01JF3DFZHDVHCNHVKXCGTD16KM-thumb-small.webp" class="card-img-top" alt="Nano Machine" />
+                        <div class="card-body">
+                            <h5 class="card-title">Nano Machine</h5>
+                            <p class="card-text">Chương 254</p>
+                            <p class="card-rating">⭐⭐⭐⭐⭐9.7</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://gg.asuracomic.net/storage/media/256/conversions/01J3BAXFBTABT3VNAV3RPNZK7S-thumb-small.webp" class="card-img-top" alt="Nano Machine" />
+                        <div class="card-body">
+                            <h5 class="card-title">Nano Machine</h5>
+                            <p class="card-text">Chương 254</p>
+                            <p class="card-rating">⭐⭐⭐⭐⭐9.7</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img src="https://gg.asuracomic.net/storage/media/270399/conversions/01JKTBDEEZRNKTH6TRHPF5PCXM-thumb-small.webp" class="card-img-top" alt="Nano Machine" />
+                        <div class="card-body">
+                            <h5 class="card-title">Nano Machine</h5>
+                            <p class="card-text">Chương 254</p>
+                            <p class="card-rating">⭐⭐⭐⭐⭐9.7</p>
+                        </div>
+                    </div>
+
+                </div>
+        
+                <!-- Thanh trượt -->
+                <div class="scroll-indicator">
+                    <div class="scroll-dot active"></div>
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-dot"></div>
+                </div>
+            </div>
+        </section>
+        
+
+
+          <!-- Latest Updates -->
+          <section class="latest-updates mt-4">
+            <div class="container mt-4">
+                <h2 class="mb-3">📖Latest Updates</h2>
+            
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/79/1be5e62f.webp" alt="Nano Machine">
+                            <div>
+                                <h5>The Terminally Ill Young Master...</h5>
+                                <p class="chapter-info">Chương 56 - I Wonder... <span class="badge bg-primary">1 giờ trước</span></p>
+                                <p class="chapter-info">Chương 55 - Incredi... <span class="badge bg-secondary">7 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/285/conversions/01J4J7N5E8J6GSEYWGV23ZFHDG-thumb-small.webp" alt="Duke Pendragon">
+                            <div>
+                                <h5>Duke Pendragon</h5>
+                                <p class="chapter-info">Chương 130 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 129 <span class="badge bg-secondary">12 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/298/conversions/01J7TV2G7719CVSTSW9T9M6F31-thumb-small.webp" alt="School Life">
+                            <div>
+                                <h5>My School Life Pretending To Be...</h5>
+                                <p class="chapter-info">Chương 107 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 106 <span class="badge bg-secondary">9 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/78/conversions/7e31399d-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/10/conversions/55ae5b78-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/103/conversions/9ab6b724-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/255322/conversions/01JE7RJT71HQX1NR3XMDEK1B5R-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/283985/conversions/01JQJ43VN033V2ZBVAN94P7H9X-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/243966/conversions/01J9KCWWJBA7Z7P1XWYXX9MEZC-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/257722/conversions/01JF3DFZHDVHCNHVKXCGTD16KM-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/272496/conversions/01JMHFP0DBPD906JMCZNAKG1RH-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="list-item">
+                            <img src="https://gg.asuracomic.net/storage/media/270399/conversions/01JKTBDEEZRNKTH6TRHPF5PCXM-thumb-small.webp" alt="Crazy Demon">
+                            <div>
+                                <h5>The Return of the Crazy Demon</h5>
+                                <p class="chapter-info">Chương 148 <span class="badge bg-warning">Ra mắt sau 4.8 giờ</span></p>
+                                <p class="chapter-info">Chương 147 <span class="badge bg-secondary">14 ngày trước</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+          </section>
+        </div>
+
+
+
+        <!-- Bên phải: Popular -->
+        <div class="col-md-4">
+          <section class="popular">
+            <h2 class="text-warning">⭐ Popular</h2>
+            <div class="row">
+              <div class="col-12">
+                <div class="card">
+                  <img
+                    src="https://via.placeholder.com/150"
+                    class="card-img-top"
+                    alt="Comic Image"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Tên Truyện 5</h5>
+                    <p class="card-text">Top đánh giá: ⭐⭐⭐⭐⭐</p>
+                    <a href="#" class="btn btn-warning">Đọc ngay</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>

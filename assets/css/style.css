@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Định dạng body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(18 18 18 / var(--tw-bg-opacity, 1));
+}
+
+/* Navbar */
+.navbar {
+    background-color: #800080 !important; /* Màu nền của navbar */
+    padding: 10px 0; /* Tạo khoảng cách trên dưới */
+}
+
+.navbar .nav-link {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.navbar .btn-light {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+}
+
+/* Tiêu đề chính */
+h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Căn chỉnh container chính */
+.container {
+    max-width: 1200px;
+}
+
+/* Section - Tạo khoảng cách giữa các phần */
+section {
+    padding: 20px 0;
+}
+
+/* Cấu hình card */
+.card {
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/* Hiệu ứng hover */
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hình ảnh trong card */
+.card img {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Tăng cường hiển thị nội dung trong card */
+.card-body {
+    text-align: center;
+}
+
+/* Carousel - Hình ảnh nổi bật */
+.carousel-item img {
+    height: 350px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Caption của carousel */
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carousel-caption h5 {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+
+
+
+
+/* css chuyển động */
+.featured-slider{
+    background-color: violet;
+}
+
+
+
+
+
+/* css truyen nối tiếng  */
+.popular-today {
+    background-color: red; /* Màu nền xám nhạt */
+    padding: 20px;
+    border-radius: 10px; /* Bo góc để đẹp hơn */
+}
+
+.scroll-container {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding: 10px;
+}
+
+.scroll-container::-webkit-scrollbar {
+    display: none; /* Ẩn thanh cuộn trên trình duyệt WebKit */
+}
+
+.card {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 350px;
+    scroll-snap-align: start;
+}
+
+.card-body {
+    font-size: 14px; /* Giảm kích thước chữ */
+    text-align: left; /* Căn chữ về bên trái */
+}
+
+.card-body h5 {
+    font-size: 16px; /* Tiêu đề nhỏ hơn */
+    font-weight: bold;
+}
+
+.card-body p {
+    font-size: 12px;
+    color: gray; /* Tùy chỉnh màu chữ */
+    margin-bottom: 4px; /* Giảm khoảng cách giữa các đoạn văn */
+}
+
+.card-rating {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.scroll-indicator {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.scroll-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.scroll-dot.active {
+    background-color: black;
+}
+
+
+
+/* css chapter mới  */
+.latest-updates{
+    background-color: blue; /* Màu nền xám nhạt */
+}
+.list-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    margin-bottom: 10px;
+}
+
+.list-item img {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px;
+}
+
+.list-item h5 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.chapter-info {
+    font-size: 14px;
+    color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+/* css nỗi tiếng  */
+.popular{
+    background-color: orangered;
+}
