@@ -307,63 +307,65 @@ section {
 
 
 /* css nỗi tiếng  */
-.popular{
-    background-color: orangered;
-}
+    .popular{
+        background-color: orangered;
+    }
 
-.list-group-item {
-    background-color: #252525;
-    border: none;
-    padding: 10px;
-    margin-bottom: 8px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
-    transition: transform 0.2s ease-in-out;
-}
-.list-group-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 3px 5px rgba(255, 255, 255, 0.15);
-}
-.list-group-item img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 6px;
-}
-.rank-number {
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: 1px solid white;
-    border-radius: 10px;
-    margin-right: 12px;
-}
-.list-group-item h5 {
-    font-size: 16px;
-    margin-bottom: 4px;
-    color: #fff;
-}
-.list-group-item p, .list-group-item small {
-    font-size: 14px;
-    color: #ccc;
-    margin: 0;
-}
+    .list-group-item {
+        background-color: #252525;
+        border: none;
+        padding: 10px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+        transition: transform 0.2s ease-in-out;
+    }
+    .list-group-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 3px 5px rgba(255, 255, 255, 0.15);
+    }
+    .list-group-item img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+    .rank-number {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin-right: 12px;
+    }
+    .list-group-item h5 {
+        font-size: 16px;
+        margin-bottom: 4px;
+        color: #fff;
+    }
+    .list-group-item p, .list-group-item small {
+        font-size: 14px;
+        color: #ccc;
+        margin: 0;
+    }
 
 
 
 
 /* css chân trang */
 .footer {
-    background-color: rgb(18 18 18 / var(--tw-bg-opacity, 1)); /* Màu tím giống ảnh */
+    /* background-color: rgb(18 18 18 / var(--tw-bg-opacity, 1)); */
+    background-color: rgba(255, 255, 255, 0.15);
     width: 100vw; /* Chiều rộng toàn màn hình */
+    height: 180px;
     display: flex;
     flex-direction: column;
     justify-content: center;

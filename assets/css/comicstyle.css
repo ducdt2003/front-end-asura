@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Định dạng body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(18 18 18 / var(--tw-bg-opacity, 1));
+}
+
+/* Navbar */
+.navbar {
+    background-color: #800080 !important; /* Màu nền của navbar */
+    padding: 10px 0; /* Tạo khoảng cách trên dưới */
+}
+
+.navbar .nav-link {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.navbar .btn-light {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+}
+
+/* Tiêu đề chính */
+h2 {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Căn chỉnh container chính */
+.container {
+    max-width: 1200px;
+}
+
+
+
+
+
+
+/* css bên trái body */
+.col-md-8 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Khoảng cách giữa các phần */
+}
+
+/* Section - Tạo khoảng cách giữa các phần */
+section {
+    padding: 20px 0;
+}
+
+/* Màu nền cho từng phần */
+.information-comics {
+    height: 500px;
+    background-color: red;
+}
+
+.information-chapter {
+    height: 400px;
+    background-color: yellow;
+}
+
+.information-comments {
+    height: 280px;
+    background-color: blue;
+}
+
+.related-series {
+    height: 210px;
+    background-color: aqua;
+}
+
+
+
+/* css phần đẩu thông tin truyện của body */
+
+
+.information-comics {
+    background-color: #1e1e2f;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 20px;
+    color: white;
+    font-family: sans-serif;
+}
+
+.info-wrapper {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.info-left {
+    width: 250px;
+    flex-shrink: 0;
+    text-align: center;
+}
+
+.info-left img {
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.bookmark-btn {
+    margin-top: 10px;
+    background-color: purple;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 6px;
+}
+
+.follows {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    color: #ccc;
+}
+
+.rating {
+    margin-top: 10px;
+}
+
+.rating span {
+    color: gold;
+    font-size: 1.3rem;
+}
+
+.rate-btn {
+    margin-left: 10px;
+    padding: 4px 10px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 4px;
+}
+
+.info-right {
+    flex: 1;
+    min-width: 250px;
+}
+
+.info-right h2 {
+    font-weight: bold;
+}
+
+.share-buttons button {
+    margin-right: 6px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    font-size: 0.85rem;
+}
+
+.fb { background: #3b5998; }
+.tw { background: #00acee; }
+.wa { background: #25D366; }
+.pt { background: #e60023; }
+
+.details-row {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* css nỗi tiếng  */
+    .popular{
+        background-color: orangered;
+    }
+
+    .list-group-item {
+        background-color: #252525;
+        border: none;
+        padding: 10px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+        transition: transform 0.2s ease-in-out;
+    }
+    .list-group-item:hover {
+        transform: scale(1.02);
+        box-shadow: 0 3px 5px rgba(255, 255, 255, 0.15);
+    }
+    .list-group-item img {
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 6px;
+    }
+    .rank-number {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 10px;
+        margin-right: 12px;
+    }
+    .list-group-item h5 {
+        font-size: 16px;
+        margin-bottom: 4px;
+        color: #fff;
+    }
+    .list-group-item p, .list-group-item small {
+        font-size: 14px;
+        color: #ccc;
+        margin: 0;
+    }
+
+
+
+
+/* css chân trang */
+.footer {
+    /* background-color: rgb(18 18 18 / var(--tw-bg-opacity, 1)); */
+    background-color: rgba(255, 255, 255, 0.15);
+    width: 100vw; /* Chiều rộng toàn màn hình */
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    gap: 20px;
+    padding: 15px 0;
+    background-color: red;
+    width: 100vw;
+    height: 60px; /* Thêm chiều cao để căn chữ */
+    text-align: center;
+}
+
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-links a:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+
+.footer-icon {
+    margin-top: 15px;
+}
+
+.footer-icon img {
+    width: 80px;
+    height: 80px;
+}
