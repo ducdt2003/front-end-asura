@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter List</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .chapter-section {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .chapter-section h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .chapter-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .chapter-buttons button {
+            flex: 1;
+            background-color: #8b5cf6;
+            color: #fff;
+            border: 2px solid #a78bfa;
+            padding: 10px;
+            border-radius: 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .chapter-buttons button:hover {
+            background-color: #a78bfa;
+            border-color: #d8b9ff;
+        }
+        .chapter-search {
+            margin-bottom: 15px;
+        }
+        .chapter-search input {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            border: 1px solid #444;
+            border-radius: 5px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        .chapter-search input::placeholder {
+            color: #888;
+        }
+        .chapter-list {
+            max-height: 300px;
+            overflow-y: auto;
+            background-color: #222;
+            border-radius: 5px;
+            scrollbar-width: thin;
+            scrollbar-color: #8b5cf6 #333;
+        }
+        .chapter-list::-webkit-scrollbar {
+            width: 8px;
+        }
+        .chapter-list::-webkit-scrollbar-track {
+            background: #333;
+        }
+        .chapter-list::-webkit-scrollbar-thumb {
+            background-color: #8b5cf6;
+            border-radius: 10px;
+        }
+        .chapter-list::-webkit-scrollbar-button {
+            background-color: #8b5cf6;
+            height: 10px;
+            border-radius: 5px;
+        }
+        .chapter-item {
+            padding: 15px;
+            border-left: 4px solid #8b5cf6;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .chapter-item:hover {
+            background-color: #333;
+        }
+        .chapter-item:last-child {
+            border-bottom: none;
+        }
+        .chapter-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .chapter-info .chapter-number {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .chapter-info .chapter-date {
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <section class="chapter-section">
+        <h3>Chapter: The Extra's Academy Survival Guide</h3>
+        <div class="chapter-buttons">
+            <button>First Chapter<br>Chapter 0</button>
+            <button>New Chapter<br>Chapter 74</button>
+        </div>
+        <div class="chapter-search">
+            <input type="text" placeholder="Search Chapter. Example: 25 or 178">
+        </div>
+        <div class="chapter-list">
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-number">Chapter 74</span>
+                    <span class="chapter-date">April 22nd 2025</span>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-number">Chapter 73</span>
+                    <span class="chapter-date">April 15th 2025</span>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-number">Chapter 72</span>
+                    <span class="chapter-date">April 7th 2025</span>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-number">Chapter 71</span>
+                    <span class="chapter-date">March 31st 2025</span>
+                </div>
+            </div>
+            <div class="chapter-item">
+                <div class="chapter-info">
+                    <span class="chapter-number">Chapter 70</span>
+                    <span class="chapter-date">March 22nd 2025</span>
+                </div>
+            </div>
+            <!-- Thêm các chương khác nếu cần -->
+        </div>
+    </section>
+</body>
+</html>

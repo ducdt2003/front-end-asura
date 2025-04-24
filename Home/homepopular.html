@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome cho icon ngôi sao -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .popular-section {
+            padding: 20px 0;
+        }
+        .popular-section h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+        }
+        .comic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+        .comic-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .comic-image {
+            width: 60px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .comic-info {
+            flex: 1;
+        }
+        .comic-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .comic-title:hover {
+            color: #8b5cf6;
+        }
+        .comic-meta {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-bottom: 3px;
+        }
+        .comic-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: #f1c40f;
+        }
+        .comic-views {
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <section class="popular-section">
+        <div class="container mt-5">
+            <h2 class="mb-4">Popular</h2>
+            <div class="comic-list" id="comicList">
+                <!-- Danh sách truyện sẽ được thêm bằng JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Dữ liệu giả lập (thay bằng API thật)
+        const comics = [
+            {
+                id: 1,
+                title: "The One Which of the Demon Lord",
+                cover_image: "https://gg.asuracomic.net/storage/media/261340/conversions/01JGBYSXQG2X42HGAHQ33MDHCQ-thumb-small.webp",
+                genres: "Action, Adventure, Comedy, Fantasy",
+                rating: 10,
+                view_count: 1200000
+            },
+            {
+                id: 2,
+                title: "Mercenary Enrollment",
+                cover_image: "https://gg.asuracomic.net/storage/media/279987/conversions/01JP56DAW10PQ08Y5XJZAA5V9W-thumb-small.webp",
+                genres: "Action, Adventure, Drama",
+                rating: 9.5,
+                view_count: 1100000
+            },
+            {
+                id: 3,
+                title: "The Hero Over at the Academy",
+                cover_image: "https://gg.asuracomic.net/storage/media/257968/conversions/01JF6DD6P4PAVNG43QP7XN9676-thumb-small.webp",
+                genres: "Action, Fantasy, School Life",
+                rating: 9.2,
+                view_count: 1000000
+            },
+            {
+                id: 4,
+                title: "Average of the Blessed Swordsman, Returning",
+                cover_image: "https://gg.asuracomic.net/storage/media/266867/conversions/01JJGM5K45NBQ2156PKB12KXEN-thumb-small.webp",
+                genres: "Action, Adventure, Fantasy",
+                rating: 8.8,
+                view_count: 950000
+            },
+            {
+                id: 5,
+                title: "Emperor of Solo Play",
+                cover_image: "https://gg.asuracomic.net/storage/media/263608/conversions/01JH5TBN2T87D48PVY7BD1TTNH-thumb-small.webp",
+                genres: "Action, Adventure, Fantasy",
+                rating: 8.5,
+                view_count: 900000
+            },
+            {
+                id: 6,
+                title: "Solo Leveling",
+                cover_image: "https://gg.asuracomic.net/storage/media/257722/conversions/01JF3DFZHDVHCNHVKXCGTD16KM-thumb-small.webp",
+                genres: "Action, Adventure, Fantasy",
+                rating: 9.8,
+                view_count: 850000
+            },
+            {
+                id: 7,
+                title: "The Legendary Mercenary Rebirth",
+                cover_image: "https://gg.asuracomic.net/storage/media/261340/conversions/01JGBYSXQG2X42HGAHQ33MDHCQ-thumb-small.webp",
+                genres: "Action, Adventure, Fantasy",
+                rating: 9.0,
+                view_count: 800000
+            },
+            {
+                id: 8,
+                title: "Second Season",
+                cover_image: "https://gg.asuracomic.net/storage/media/279987/conversions/01JP56DAW10PQ08Y5XJZAA5V9W-thumb-small.webp",
+                genres: "Action, Adventure, Drama",
+                rating: 8.7,
+                view_count: 750000
+            }
+        ];
+
+        // Hàm định dạng số lượt xem
+        function formatViewCount(views) {
+            if (views >= 1000000) {
+                return (views / 1000000).toFixed(1) + "M";
+            } else if (views >= 1000) {
+                return (views / 1000).toFixed(1) + "K";
+            } else {
+                return views;
+            }
+        }
+
+        // Hàm tính số sao dựa trên rating
+        function getStarRating(rating) {
+            const fullStars = Math.floor(rating / 2); // 1 sao = 2 điểm
+            let stars = "";
+            for (let i = 0; i < 5; i++) {
+                if (i < fullStars) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            return stars;
+        }
+
+        // Hiển thị danh sách truyện
+        const comicList = document.getElementById("comicList");
+
+        comics.forEach(comic => {
+            const comicItem = document.createElement("div");
+            comicItem.className = "comic-item";
+            comicItem.innerHTML = `
+                <img src="${comic.cover_image}" class="comic-image" alt="${comic.title}">
+                <div class="comic-info">
+                    <a href="#" class="comic-title" title="${comic.title}">${comic.title}</a>
+                    <div class="comic-meta">${comic.genres}</div>
+                    <div class="comic-rating">
+                        ${getStarRating(comic.rating)} ${comic.rating}
+                    </div>
+                    <div class="comic-views">${formatViewCount(comic.view_count)}</div>
+                </div>
+            `;
+            comicList.appendChild(comicItem);
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

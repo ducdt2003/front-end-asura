@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiểm duyệt & Báo cáo</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 50;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 h-screen overflow-auto">
+  <div class="flex h-full">
+    <!-- Sidebar -->
+    <div class="w-64 bg-white shadow-md h-full">
+      <div class="p-4 font-bold text-xl border-b">Admin Panel</div>
+      <ul class="p-4 space-y-4">
+        <li class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 cursor-pointer">
+          <span>🏠</span><span>Tổng quan</span>
+        </li>
+        <li class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 cursor-pointer">
+          <span>📚</span><span>Quản lý truyện</span>
+        </li>
+        <li class="flex items-center space-x-3 text-blue-700 font-semibold cursor-pointer">
+          <span>🛡️</span><span>Kiểm duyệt & Báo cáo</span>
+        </li>
+        <li class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 cursor-pointer">
+          <span>📊</span><span>Thống kê</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+      <h1 class="text-2xl font-bold mb-6">Kiểm duyệt & Báo cáo</h1>
+
+      <!-- Danh sách báo cáo -->
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h2 class="text-lg font-semibold mb-4">Danh sách báo cáo</h2>
+        <table class="w-full table-auto text-left text-sm">
+          <thead>
+            <tr class="bg-gray-100 text-gray-600">
+              <th class="px-4 py-2">#</th>
+              <th class="px-4 py-2">Người báo cáo</th>
+              <th class="px-4 py-2">Truyện bị báo cáo</th>
+              <th class="px-4 py-2">Lý do</th>
+              <th class="px-4 py-2">Ngày báo cáo</th>
+              <th class="px-4 py-2">Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Lặp qua các bản ghi báo cáo -->
+            <!-- Giả sử bạn có các dữ liệu báo cáo -->
+            <tr class="border-t">
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">NguyenVanA</td>
+              <td class="px-4 py-2">Truyện: "Hành trình vô tận"</td>
+              <td class="px-4 py-2 text-red-600">Nội dung phản cảm</td>
+              <td class="px-4 py-2">17/04/2025</td>
+              <td class="px-4 py-2 space-x-2">
+                <button onclick="openModal('NguyenVanA', 'Hành trình vô tận', 'Nội dung phản cảm', '17/04/2025')" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm">Xem</button>
+                <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm">Chấp nhận</button>
+                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm">Từ chối</button>
+              </td>
+            </tr>
+            <tr class="border-t">
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">LeThiB</td>
+              <td class="px-4 py-2">Bình luận: "Không hay ho gì"</td>
+              <td class="px-4 py-2 text-red-600">Ngôn từ xúc phạm</td>
+              <td class="px-4 py-2">16/04/2025</td>
+              <td class="px-4 py-2 space-x-2">
+                <button onclick="openModal('LeThiB', 'Bình luận: "Không hay ho gì"', 'Ngôn từ xúc phạm', '16/04/2025')" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 text-sm">Xem</button>
+                <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 text-sm">Chấp nhận</button>
+                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 text-sm">Từ chối</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: Xem Chi Tiết Báo Cáo -->
+  <div id="modal" class="modal flex">
+    <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 space-y-4">
+      <div class="flex justify-between items-center border-b pb-4">
+        <h2 class="text-xl font-semibold">Chi Tiết Báo Cáo</h2>
+        <button onclick="closeModal()" class="text-gray-500 text-xl">&times;</button>
+      </div>
+      
+      <!-- Thông tin báo cáo -->
+      <div>
+        <h3 class="font-semibold text-lg">Người Báo Cáo:</h3>
+        <p id="reporterName" class="text-gray-700">NguyenVanA</p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg">Truyện Bị Báo Cáo:</h3>
+        <p id="storyTitle" class="text-gray-700">Truyện: "Hành trình vô tận"</p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg">Lý Do Báo Cáo:</h3>
+        <p id="reportReason" class="text-red-600">Nội dung phản cảm</p>
+      </div>
+
+      <div>
+        <h3 class="font-semibold text-lg">Ngày Báo Cáo:</h3>
+        <p id="reportDate" class="text-gray-700">17/04/2025</p>
+      </div>
+
+      <!-- Hành động -->
+      <div class="flex space-x-3 mt-4">
+        <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full">Chấp Nhận</button>
+        <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full">Từ Chối</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mở modal
+    function openModal(reporterName, storyTitle, reportReason, reportDate) {
+      document.getElementById('reporterName').innerText = reporterName;
+      document.getElementById('storyTitle').innerText = storyTitle;
+      document.getElementById('reportReason').innerText = reportReason;
+      document.getElementById('reportDate').innerText = reportDate;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    // Đóng modal
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>

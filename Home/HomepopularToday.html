@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Today Section</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome cho icon ngôi sao -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        .popular-today {
+            padding: 20px 0;
+    
+        }
+        .popular-today h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            display: flex;
+    justify-content: center;
+
+        }
+        .comic-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .card {
+            flex: 0 0 150px;
+            background: transparent;
+            border: none;
+            position: relative;
+        }
+        .card-img-top {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .comic-type {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 3px;
+        }
+        .card-body {
+            padding: 10px 0;
+        }
+        .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+            text-decoration: none;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .card-title:hover {
+            color: #ff4d4d;
+        }
+        .card-text {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+        .card-rating {
+            font-size: 0.9rem;
+            color: #ffd700;
+            margin: 0;
+        }
+        .star-rating {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <section class="popular-today">
+        <div class="container mt-5">
+            <h2 class="mb-4">Popular Today</h2>
+            <div class="comic-container">
+                <!-- Truyện 1 -->
+                <div class="card">
+                    <img src="https://gg.asuracomic.net/storage/media/79/1be5e62f.webp" class="card-img-top" alt="Myst, Might, Mayhem" />
+                    <span class="comic-type">MANHWA</span>
+                    <div class="card-body">
+                        <a href="#" class="card-title">Myst, Might, Mayhem</a>
+                        <p class="card-text">Chapter 70</p>
+                        <p class="card-rating">
+                            <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            9.9
+                        </p>
+                    </div>
+                </div>
+                <!-- Truyện 2 -->
+                <div class="card">
+                    <img src="https://gg.asuracomic.net/storage/media/155/conversions/e43c72fb-thumb-small.webp" class="card-img-top" alt="Martial God Regressed to Level 2" />
+                    <span class="comic-type">MANHWA</span>
+                    <div class="card-body">
+                        <a href="#" class="card-title">Martial God Regressed to Level 2</a>
+                        <p class="card-text">Chapter 55</p>
+                        <p class="card-rating">
+                            <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            9.8
+                        </p>
+                    </div>
+                </div>
+                <!-- Truyện 3 -->
+                <div class="card">
+                    <img src="https://gg.asuracomic.net/storage/media/267698/conversions/01JJST2HQ54CXEV2YQN2621FTB-thumb-small.webp" class="card-img-top" alt="The Indomitable Martial King" />
+                    <span class="comic-type">MANHWA</span>
+                    <div class="card-body">
+                        <a href="#" class="card-title">The Indomitable Martial King</a>
+                        <p class="card-text">Chapter 78</p>
+                        <p class="card-rating">
+                            <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            9.8
+                        </p>
+                    </div>
+                </div>
+                <!-- Truyện 4 -->
+                <div class="card">
+                    <img src="https://gg.asuracomic.net/storage/media/243337/conversions/01J9AHYZQ90WM6831SZ98MGN55-thumb-small.webp" class="card-img-top" alt="Logging 10,000 Years into the Future" />
+                    <span class="comic-type">MANHUA</span>
+                    <div class="card-body">
+                        <a href="#" class="card-title">Logging 10,000 Years into the Future</a>
+                        <p class="card-text">Chapter 211</p>
+                        <p class="card-rating">
+                            <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            9.8
+                        </p>
+                    </div>
+                </div>
+                <!-- Truyện 5 -->
+                <div class="card">
+                    <img src="https://gg.asuracomic.net/storage/media/298/conversions/01J7TV2G7719CVSTSW9T9M6F31-thumb-small.webp" class="card-img-top" alt="The Novel's Extra (Remake)" />
+                    <span class="comic-type">MANHWA</span>
+                    <div class="card-body">
+                        <a href="#" class="card-title">The Novel's Extra (Remake)</a>
+                        <p class="card-text">Chapter 125</p>
+                        <p class="card-rating">
+                            <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                            9.9
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap JS và Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 h-screen overflow-hidden">
+  <div class="flex h-full">
+    <!-- Sidebar -->
+    <div class="w-64 bg-white shadow-md h-full flex flex-col">
+      <div class="p-4 font-bold text-xl border-b">📖 Admin Panel</div>
+      <ul class="p-4 space-y-4 flex-1">
+        <li class="text-gray-700 hover:text-blue-600 cursor-pointer">🏠 Tổng quan</li>
+        <li class="text-gray-700 hover:text-blue-600 cursor-pointer">📚 Quản lý Truyện</li>
+        <li class="text-gray-700 hover:text-blue-600 cursor-pointer">📖 Quản lý Chương</li>
+        <li class="text-gray-700 hover:text-blue-600 cursor-pointer">👤 Người dùng</li>
+        <li class="text-gray-700 hover:text-blue-600 cursor-pointer">💰 Tài khoản & Giao dịch</li>
+        <li class="text-gray-700 hover:text-blue-600 cursor-pointer">⚠️ Báo cáo</li>
+        <li class="text-gray-700 hover:text-blue-600 cursor-pointer">🔔 Thông báo</li>
+        <li class="text-gray-700 hover:text-blue-600 cursor-pointer">📝 Nhật ký Admin</li>
+      </ul>
+      <div class="p-4 border-t text-sm text-gray-500">© 2025 MangaAdmin</div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6 overflow-auto">
+      <div class="flex items-center justify-between mb-6">
+        <h1 class="text-2xl font-bold">Tổng quan hệ thống</h1>
+        <div class="flex items-center space-x-4">
+          <span class="text-sm text-gray-700">Admin: <strong>admin01</strong></span>
+          <img src="https://i.pravatar.cc/30" class="rounded-full w-8 h-8" alt="avatar" />
+        </div>
+      </div>
+
+      <!-- Dashboard Widgets -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-md transition">
+          <h2 class="text-sm text-gray-500">Tổng số truyện</h2>
+          <p class="text-2xl font-semibold text-gray-900">128</p>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-md transition">
+          <h2 class="text-sm text-gray-500">Tổng chương</h2>
+          <p class="text-2xl font-semibold text-gray-900">1,532</p>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-md transition">
+          <h2 class="text-sm text-gray-500">Người dùng hoạt động</h2>
+          <p class="text-2xl font-semibold text-gray-900">847</p>
+        </div>
+        <div class="p-4 bg-white rounded-2xl shadow hover:shadow-md transition">
+          <h2 class="text-sm text-gray-500">Số dư hệ thống</h2>
+          <p class="text-2xl font-semibold text-gray-900">₫2,530,000</p>
+        </div>
+      </div>
+
+      <!-- Recent Reports Table -->
+      <div class="bg-white rounded-2xl shadow p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-xl font-semibold">Báo cáo gần đây</h2>
+          <button class="text-sm text-blue-500 hover:underline">Xem tất cả</button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full table-auto text-left text-sm">
+            <thead>
+              <tr class="text-gray-600 border-b">
+                <th class="py-2 px-4">Người dùng</th>
+                <th class="py-2 px-4">Truyện</th>
+                <th class="py-2 px-4">Chương</th>
+                <th class="py-2 px-4">Loại</th>
+                <th class="py-2 px-4">Trạng thái</th>
+                <th class="py-2 px-4 text-right">Hành động</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-b hover:bg-gray-50">
+                <td class="py-2 px-4">user123</td>
+                <td class="py-2 px-4">One Punch Man</td>
+                <td class="py-2 px-4">Chap 45</td>
+                <td class="py-2 px-4 text-red-500 font-medium">SPAM</td>
+                <td class="py-2 px-4 text-yellow-600 font-medium">Đang xử lý</td>
+                <td class="py-2 px-4 text-right space-x-2">
+                  <button class="text-green-600 hover:underline">Giải quyết</button>
+                  <button class="text-red-600 hover:underline">Từ chối</button>
+                </td>
+              </tr>
+              <!-- More rows -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

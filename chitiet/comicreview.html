@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews Section</title>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .reviews-section {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .reviews-section h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .review-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+        .review-item:last-child {
+            border-bottom: none;
+        }
+        .review-avatar {
+            flex: 0 0 40px;
+        }
+        .review-avatar img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .review-content {
+            flex: 1;
+        }
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+        .review-header .username {
+            font-weight: bold;
+            font-size: 1rem;
+        }
+        .review-header .role {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+        .review-header .rating {
+            display: flex;
+            gap: 2px;
+        }
+        .review-header .rating .star {
+            color: #ffd700;
+            font-size: 1rem;
+        }
+        .review-header .date {
+            color: #ccc;
+            font-size: 0.85rem;
+        }
+        .review-text {
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <section class="reviews-section">
+        <h3>Reviews</h3>
+        <div class="review-item">
+            <div class="review-avatar">
+                <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="User Avatar">
+            </div>
+            <div class="review-content">
+                <div class="review-header">
+                    <span class="username">dannerz</span>
+                    <span class="role">ADMIN</span>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="date">07/31/2024</span>
+                </div>
+                <div class="review-text">
+                    The ONLY bad thing about this series is that they don't make updates daily. I'LL rate it 50/5 IF YOU RELEASE HOURLY I promise.
+                </div>
+            </div>
+        </div>
+        <div class="review-item">
+            <div class="review-avatar">
+                <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="User Avatar">
+            </div>
+            <div class="review-content">
+                <div class="review-header">
+                    <span class="username">Meganekirin</span>
+                    <span class="role">READER</span>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="date">08/11/2024</span>
+                </div>
+                <div class="review-text">
+                    10/10 highly recommend, would do global scale market manipulation again. More seriously, I actually like the economic part of this story way more than the fantasy, it's legitimately the best part
+                </div>
+            </div>
+        </div>
+        <div class="review-item">
+            <div class="review-avatar">
+                <img src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=mp&f=y" alt="User Avatar">
+            </div>
+            <div class="review-content">
+                <div class="review-header">
+                    <span class="username">oliver</span>
+                    <span class="role">READER</span>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <span class="date">08/28/2024</span>
+                </div>
+                <div class="review-text">
+                    amazing manhwa the wort part is it not released faster
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

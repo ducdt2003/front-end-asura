@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        /* Centered Container */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        /* Navigation Bar */
+        .navbar {
+            background: linear-gradient(to bottom, #4b0082, #2c1e3d);
+            padding: 10px 20px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        .navbar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,186.7C384,192,480,224,576,229.3C672,235,768,213,864,202.7C960,192,1056,192,1152,202.7C1248,213,1344,235,1392,245.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') repeat-x bottom;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        .navbar .container-fluid {
+            position: relative;
+            z-index: 1;
+        }
+        .navbar-brand img {
+            height: 40px;
+            border-radius: 50%;
+        }
+        .navbar-nav {
+            flex-grow: 1;
+            justify-content: flex-start;
+        }
+        .navbar-nav .nav-link {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 1rem;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ff8c00;
+        }
+        .search-bar {
+            flex-grow: 2;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input {
+            width: 50%;
+            background-color: #1a1a1a;
+            border: 1px solid #483d8b;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+        }
+        .search-bar button {
+            background-color: #1a1a1a;
+            border: 1px solid #483d8b;
+            border-left: none;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .btn-login {
+            background-color: #ff4500;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 5px;
+        }
+        .btn-login:hover {
+            background-color: #ff6347;
+        }
+        /* Hot Comics Carousel */
+        .carousel-container {
+            background: linear-gradient(to right, #2c1e3d, #483d8b);
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #ff4500;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-slide {
+            display: none;
+            flex-direction: row;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .carousel-slide.active {
+            display: flex;
+        }
+        .comic-info {
+            flex: 1;
+            overflow: hidden;
+        }
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .rating .star {
+            color: #f1c40f;
+            font-size: 1.2rem;
+        }
+        .comic-info h1 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .comic-info h3 {
+            font-size: 1.1rem;
+            color: #ff8c00;
+            margin-bottom: 0.5rem;
+        }
+        .comic-info p {
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+        }
+        .comic-info h4 {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        .comic-cover img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            flex-shrink: 0;
+        }
+        .carousel-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: grey;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .dot.active {
+            background-color: #f1c40f;
+        }
+        /* Popular Today Section */
+        .popular-today {
+            padding: 20px;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .popular-today h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .popular-today .comic-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: nowrap; /* Ensure single row */
+        }
+        .popular-today .card {
+            flex: 0 0 calc(20% - 12px); /* 5 items per row with gap adjustment */
+            background: transparent;
+            border: none;
+            position: relative;
+        }
+        .popular-today .card-img-top {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .popular-today .comic-type {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 3px;
+        }
+        .popular-today .chapter-number {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #ff4d4d;
+            color: #fff;
+            padding: 2px 8px;
+            font-size: 0.75rem;
+            border-radius: 3px;
+        }
+        .popular-today .card-body {
+            padding: 10px 0;
+        }
+        .popular-today .card-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+            text-decoration: none;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .popular-today .card-title:hover {
+            color: #ff8c00;
+        }
+        .popular-today .card-text {
+            font-size: 0.9rem;
+            color: #ccc;
+            margin-bottom: 5px;
+        }
+        .popular-today .card-rating {
+            font-size: 0.9rem;
+            color: #ffd700;
+            margin: 0;
+            display: flex;
+            align-items: center;
+        }
+        .popular-today .star-rating {
+            margin-right: 5px;
+        }
+        /* Latest Updates Section */
+        .latest-updates {
+            background-color: #483d8b;
+            padding: 20px;
+            border: 2px solid #483d8b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .latest-updates h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .latest-updates .new-label {
+            background-color: #ff4d4d;
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            text-transform: uppercase;
+        }
+        .latest-updates .comic-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .latest-updates .comic-item {
+            display: flex;
+            gap: 15px;
+            flex: 0 0 calc(50% - 10px);
+            min-width: 300px;
+            max-width: 100%;
+        }
+        .latest-updates .comic-image {
+            width: 100px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        .latest-updates .comic-info {
+            flex: 1;
+            max-width: 180px;
+            overflow: hidden;
+        }
+        .latest-updates .comic-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .latest-updates .comic-title:hover {
+            color: #ff8c00;
+        }
+        .latest-updates .comic-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .latest-updates .comic-meta .rating {
+            color: #f1c40f;
+        }
+        .latest-updates .comic-meta .status {
+            color: #00ff00;
+        }
+        .latest-updates .chapter-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .latest-updates .chapter-item {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .latest-updates .chapter-number {
+            color: #ff4d4d;
+            margin-right: 10px;
+        }
+        .latest-updates .chapter-time {
+            color: #ccc;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .latest-updates .new-tag {
+            background-color: #ff4d4d;
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        .latest-updates .lock-icon {
+            color: #ffd700;
+            margin-left: 5px;
+        }
+        .latest-updates .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .latest-updates .pagination button {
+            background-color: #2c3e50;
+            color: #fff;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        .latest-updates .pagination button:hover:not(.disabled) {
+            background-color: #ff8c00;
+        }
+        .latest-updates .pagination button.active {
+            background-color: #ff8c00;
+        }
+        .latest-updates .pagination button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .latest-updates .pagination .nav-btn i {
+            font-size: 1.2rem;
+        }
+        /* Popular Section (Sidebar) */
+        .popular-section {
+            background-color: #ff4500;
+            padding: 20px;
+            border: 2px solid #ff4500;
+            border-radius: 10px;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .popular-section h2 {
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .popular-section .comic-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .popular-section .comic-item {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .popular-section .comic-image {
+            width: 60px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+        .popular-section .comic-info {
+            flex: 1;
+            overflow: hidden;
+        }
+        .popular-section .comic-title {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .popular-section .comic-title:hover {
+            color: #ff8c00;
+        }
+        .popular-section .comic-meta {
+            font-size: 0.85rem;
+            color: #ccc;
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .popular-section .comic-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: #f1c40f;
+        }
+        .popular-section .comic-views {
+            font-size: 0.85rem;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container-fluid main-container">
+            <a class="navbar-brand" href="#"><img src="https://asuracomic.net/images/logo.webp" alt="Logo"></a>
+            <ul class="navbar-nav d-flex flex-row">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Bookmark</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Comics</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" placeholder="Search">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <button class="btn btn-login">Login</button>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <div class="row">
+            <!-- Main Content -->
+            <div class="col-lg-9">
+                <!-- Hot Comics Carousel -->
+                <div class="carousel-container">
+                    <div id="carouselSlides"></div>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+
+                <!-- Popular Today Section -->
+                <section class="popular-today">
+                    <div class="container">
+                        <h2 class="mb-4">Popular Today</h2>
+                        <div class="comic-container">
+                            <div class="card">
+                                <img src="https://gg.asuracomic.net/storage/media/79/1be5e62f.webp" class="card-img-top" alt="Nano Machine" />
+                                <span class="comic-type">MANHWA</span>
+                                <span class="chapter-number">257</span>
+                                <div class="card-body">
+                                    <a href="#" class="card-title">Nano Machine</a>
+                                    <p class="card-text">Chapter 257</p>
+                                    <p class="card-rating">
+                                        <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                        9.9
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="https://gg.asuracomic.net/storage/media/155/conversions/e43c72fb-thumb-small.webp" class="card-img-top" alt="Eternally Regressing Knight" />
+                                <span class="comic-type">MANHWA</span>
+                                <span class="chapter-number">54</span>
+                                <div class="card-body">
+                                    <a href="#" class="card-title">Eternally Regressing Knight</a>
+                                    <p class="card-text">Chapter 54</p>
+                                    <p class="card-rating">
+                                        <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                        9.9
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="https://gg.asuracomic.net/storage/media/267698/conversions/01JJST2HQ54CXEV2YQN2621FTB-thumb-small.webp" class="card-img-top" alt="Terminally-Ill Genius Dark Knight" />
+                                <span class="comic-type">MANHWA</span>
+                                <span class="chapter-number">91</span>
+                                <div class="card-body">
+                                    <a href="#" class="card-title">Terminally-Ill Genius Dark Knight</a>
+                                    <p class="card-text">Chapter 91</p>
+                                    <p class="card-rating">
+                                        <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                        9.7
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="https://gg.asuracomic.net/storage/media/243337/conversions/01J9AHYZQ90WM6831SZ98MGN55-thumb-small.webp" class="card-img-top" alt="Pick Me Up, Infinite Gacha" />
+                                <span class="comic-type">MANHWA</span>
+                                <span class="chapter-number">145</span>
+                                <div class="card-body">
+                                    <a href="#" class="card-title">Pick Me Up, Infinite Gacha</a>
+                                    <p class="card-text">Chapter 145</p>
+                                    <p class="card-rating">
+                                        <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                        10
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <img src="https://gg.asuracomic.net/storage/media/298/conversions/01J7TV2G7719CVSTSW9T9M6F31-thumb-small.webp" class="card-img-top" alt="Absolute Regression" />
+                                <span class="comic-type">MANHWA</span>
+                                <span class="chapter-number">46</span>
+                                <div class="card-body">
+                                    <a href="#" class="card-title">Absolute Regression</a>
+                                    <p class="card-text">Chapter 46</p>
+                                    <p class="card-rating">
+                                        <span class="star-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+                                        9.9
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Latest Updates Section -->
+                <section class="latest-updates">
+                    <div class="container">
+                        <h2 class="mb-4">
+                            <span class="new-label">NEW</span> Latest Updates
+                        </h2>
+                        <div class="comic-grid" id="comicGrid"></div>
+                        <div class="pagination" id="pagination"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Sidebar (Popular Section) -->
+            <div class="col-lg-3">
+                <section class="popular-section">
+                    <div class="container">
+                        <h2 class="mb-4">Popular</h2>
+                        <div class="comic-list" id="comicList"></div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for Hot Comics Carousel -->
+    <script>
+        const comicsCarousel = [
+            {
+                id: 1,
+                title: "THE FOX-EYED VILLAIN OF T...",
+                type: "MANHWA",
+                genres: "Action,Adventure,Crazy MC,Fantasy,Martial Arts,Mystery",
+                description: "The very last moment before the novel was about the end...The strongest villain met a pitiful fate. But that wa...",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/288219/conversions/01JS1YGRKZ41DGMR2DF4Y75H9W-thumb-small.webp",
+                author: "Author A",
+                rating: 9.7
+            },
+            {
+                id: 2,
+                title: "SHADOW OF THE MOON",
+                type: "MANGA",
+                genres: "Fantasy,Adventure,Romance",
+                description: "A young warrior discovers a hidden realm beneath the moon's shadow...",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/286977/conversions/01JRN34HBQT3SKQDJMYQWGSJQN-thumb-small.webp",
+                author: "Author B",
+                rating: 9.5
+            },
+            {
+                id: 3,
+                title: "DRAGON'S WRATH",
+                type: "MANHUA",
+                genres: "Action,Fantasy,Martial Arts",
+                description: "An ancient dragon awakens to seek revenge on those who wronged him...",
+                status: "COMPLETED",
+                cover_image: "https://gg.asuracomic.net/storage/media/270399/conversions/01JKTBDEEZRNKTH6TRHPF5PCXM-thumb-small.webp",
+                author: "Author C",
+                rating: 9.3
+            },
+            {
+                id: 4,
+                title: "SWORD OF ETERNITY",
+                type: "MANHWA",
+                genres: "Action,Adventure,Fantasy",
+                description: "A legendary sword holds the key to eternal life, but at what cost...",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/287989/conversions/01JS08KRNK477X0DMWAK0SHGWH-thumb-small.webp",
+                author: "Author D",
+                rating: 9.1
+            },
+            {
+                id: 5,
+                title: "MYSTIC RUNE HUNTER",
+                type: "MANGA",
+                genres: "Fantasy,Mystery,Adventure",
+                description: "A rune hunter uncovers ancient secrets that could change the world...",
+                status: "ONGOING",
+                cover_image: "https://via.placeholder.com/300x450.png?text=Mystic+Rune+Hunter",
+                author: "Author E",
+                rating: 9.0
+            }
+        ];
+
+        const slidesContainer = document.getElementById("carouselSlides");
+        const dotsContainer = document.getElementById("carouselDots");
+
+        comicsCarousel.forEach((comic, index) => {
+            const slide = document.createElement("div");
+            slide.className = `carousel-slide ${index === 0 ? "active" : ""}`;
+            slide.innerHTML = `
+                <div class="comic-info">
+                    <div class="rating">
+                        <span class="star">⭐</span>
+                        <span>${comic.rating.toFixed(1)}</span>
+                    </div>
+                    <h1>${comic.title}</h1>
+                    <h3>${comic.type}</h3>
+                    <p>${comic.genres.split(',').join(', ')}</p>
+                    <h4>SUMMARY</h4>
+                    <p>${comic.description}</p>
+                    <p><strong>Status:</strong> ${comic.status}</p>
+                    <p><strong>Author:</strong> ${comic.author}</p>
+                </div>
+                <div class="comic-cover">
+                    <img src="${comic.cover_image}" alt="${comic.title}" />
+                </div>
+            `;
+            slidesContainer.appendChild(slide);
+
+            const dot = document.createElement("span");
+            dot.className = `dot ${index === 0 ? "active" : ""}`;
+            dot.addEventListener("click", () => showSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            currentIndex = index;
+            const slides = document.querySelectorAll(".carousel-slide");
+            const dots = document.querySelectorAll(".dot");
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle("active", i === index);
+            });
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle("active", i === index);
+            });
+        }
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % comicsCarousel.length;
+            showSlide(currentIndex);
+        }, 5000);
+    </script>
+
+    <!-- JavaScript for Latest Updates -->
+    <script>
+        const comicsLatest = [
+            {
+                id: 1,
+                title: "Extra of a Crazy World With a Very Long Title That Should Be Truncated",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/261340/conversions/01JGBYSXQG2X42HGAHQ33MDHCQ-thumb-small.webp",
+                rating: 10,
+                chapters: [
+                    { chapter_number: 22, created_at: "2025-04-22 10:00:00", is_free: false },
+                    { chapter_number: 21, created_at: "2025-04-15 10:00:00", is_free: true }
+                ]
+            },
+            {
+                id: 2,
+                title: "Wind Breaker",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/279987/conversions/01JP56DAW10PQ08Y5XJZAA5V9W-thumb-small.webp",
+                rating: 10,
+                chapters: [
+                    { chapter_number: 544, created_at: "2025-04-22 10:00:00", is_free: false },
+                    { chapter_number: 543, created_at: "2025-04-13 10:00:00", is_free: true }
+                ]
+            },
+            {
+                id: 3,
+                title: "The Crazy Genius Composer Returns With a Long Title Here",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/257968/conversions/01JF6DD6P4PAVNG43QP7XN9676-thumb-small.webp",
+                rating: 10,
+                chapters: [
+                    { chapter_number: 62, created_at: "2025-04-22 10:00:00", is_free: false },
+                    { chapter_number: 61, created_at: "2025-04-08 10:00:00", is_free: true }
+                ]
+            },
+            {
+                id: 4,
+                title: "Dao of the Bizarre Immortal",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/266867/conversions/01JJGM5K45NBQ2156PKB12KXEN-thumb-small.webp",
+                rating: 10,
+                chapters: [
+                    { chapter_number: 32, created_at: "2025-04-22 10:00:00", is_free: false },
+                    { chapter_number: 31, created_at: "2025-04-16 10:00:00", is_free: true }
+                ]
+            },
+            {
+                id: 5,
+                title: "Spooky Yokai",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/263608/conversions/01JH5TBN2T87D48PVY7BD1TTNH-thumb-small.webp",
+                rating: 10,
+                chapters: [
+                    { chapter_number: 10, created_at: "2025-04-22 10:00:00", is_free: false },
+                    { chapter_number: 9, created_at: "2025-04-11 10:00:00", is_free: true }
+                ]
+            },
+            {
+                id: 6,
+                title: "Emperor of Solo Play With a Very Long Title That Needs to Be Shortened",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/257722/conversions/01JF3DFZHDVHCNHVKXCGTD16KM-thumb-small.webp",
+                rating: 10,
+                chapters: [
+                    { chapter_number: 7, created_at: "2025-04-22 10:00:00", is_free: false },
+                    { chapter_number: 6, created_at: "2025-04-22 09:00:00", is_free: true }
+                ]
+            },
+            {
+                id: 7,
+                title: "Mercenary Enrollment",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/261340/conversions/01JGBYSXQG2X42HGAHQ33MDHCQ-thumb-small.webp",
+                rating: 10,
+                chapters: [
+                    { chapter_number: 234, created_at: "2025-04-22 10:00:00", is_free: false },
+                    { chapter_number: 233, created_at: "2025-04-12 10:00:00", is_free: true }
+                ]
+            },
+            {
+                id: 8,
+                title: "The Legendary Hero is an Academy Honors Student",
+                status: "ONGOING",
+                cover_image: "https://gg.asuracomic.net/storage/media/279987/conversions/01JP56DAW10PQ08Y5XJZAA5V9W-thumb-small.webp",
+                rating: 10,
+                chapters: [
+                    { chapter_number: 36, created_at: "2025-04-22 10:00:00", is_free: false },
+                    { chapter_number: 35, created_at: "2025-04-12 10:00:00", is_free: true }
+                ]
+            }
+        ];
+
+        const itemsPerPage = 4;
+        const totalPages = Math.ceil(comicsLatest.length / itemsPerPage);
+        let currentPage = 1;
+
+        function getTimeStatus(createdAt) {
+            const createdDate = new Date(createdAt);
+            const now = new Date();
+            const diffTime = Math.abs(now - createdDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            return diffDays <= 1 ? "New" : `${diffDays} days`;
+        }
+
+        function displayComics(page) {
+            const comicGrid = document.getElementById("comicGrid");
+            comicGrid.innerHTML = "";
+            const start = (page - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+            const comicsToShow = comicsLatest.slice(start, end);
+
+            comicsToShow.forEach(comic => {
+                const comicItem = document.createElement("div");
+                comicItem.className = "comic-item";
+                comicItem.innerHTML = `
+                    <img src="${comic.cover_image}" class="comic-image" alt="${comic.title}">
+                    <div class="comic-info">
+                        <a href="#" class="comic-title" title="${comic.title}">${comic.title}</a>
+                        <div class="comic-meta">
+                            <span class="rating">${comic.rating} <i class="fas fa-star"></i></span>
+                            <span class="status">${comic.status}</span>
+                        </div>
+                        <ul class="chapter-list">
+                            ${comic.chapters.map(chapter => `
+                                <li class="chapter-item">
+                                    <span class="chapter-number">Chapter ${chapter.chapter_number}</span>
+                                    <span class="chapter-time">
+                                        ${getTimeStatus(chapter.created_at) === "New" ? `<span class="new-tag">New</span>` : getTimeStatus(chapter.created_at)}
+                                        ${chapter.is_free ? "" : '<i class="fas fa-lock lock-icon"></i>'}
+                                    </span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                `;
+                comicGrid.appendChild(comicItem);
+            });
+
+            updatePagination();
+        }
+
+        function updatePagination() {
+            const pagination = document.getElementById("pagination");
+            pagination.innerHTML = "";
+
+            const prevBtn = document.createElement("button");
+            prevBtn.className = "nav-btn";
+            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.classList.toggle("disabled", currentPage === 1);
+            prevBtn.addEventListener("click", () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    displayComics(currentPage);
+                }
+            });
+            pagination.appendChild(prevBtn);
+
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement("button");
+                pageBtn.textContent = i;
+                pageBtn.classList.toggle("active", i === currentPage);
+                pageBtn.addEventListener("click", () => {
+                    currentPage = i;
+                    displayComics(currentPage);
+                });
+                pagination.appendChild(pageBtn);
+            }
+
+            const nextBtn = document.createElement("button");
+            nextBtn.className = "nav-btn";
+            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.classList.toggle("disabled", currentPage === totalPages);
+            nextBtn.addEventListener("click", () => {
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    displayComics(currentPage);
+                }
+            });
+            pagination.appendChild(nextBtn);
+        }
+
+        displayComics(currentPage);
+    </script>
+
+    <!-- JavaScript for Popular Section (Sidebar) -->
+    <script>
+        const comicsPopular = [
+            {
+                id: 1,
+                title: "The One Which of the Demon Lord",
+                cover_image: "https://gg.asuracomic.net/storage/media/261340/conversions/01JGBYSXQG2X42HGAHQ33MDHCQ-thumb-small.webp",
+                genres: "Action, Adventure, Comedy, Fantasy",
+                rating: 10,
+                view_count: 1200000
+            },
+            {
+                id: 2,
+                title: "Mercenary Enrollment",
+                cover_image: "https://gg.asuracomic.net/storage/media/279987/conversions/01JP56DAW10PQ08Y5XJZAA5V9W-thumb-small.webp",
+                genres: "Action, Adventure, Drama",
+                rating: 9.5,
+                view_count: 1100000
+            },
+            {
+                id: 3,
+                title: "The Hero Over at the Academy",
+                cover_image: "https://gg.asuracomic.net/storage/media/257968/conversions/01JF6DD6P4PAVNG43QP7XN9676-thumb-small.webp",
+                genres: "Action, Fantasy, School Life",
+                rating: 9.2,
+                view_count: 1000000
+            },
+            {
+                id: 4,
+                title: "Average of the Blessed Swordsman, Returning",
+                cover_image: "https://gg.asuracomic.net/storage/media/266867/conversions/01JJGM5K45NBQ2156PKB12KXEN-thumb-small.webp",
+                genres: "Action, Adventure, Fantasy",
+                rating: 8.8,
+                view_count: 950000
+            },
+            {
+                id: 5,
+                title: "Emperor of Solo Play",
+                cover_image: "https://gg.asuracomic.net/storage/media/263608/conversions/01JH5TBN2T87D48PVY7BD1TTNH-thumb-small.webp",
+                genres: "Action, Adventure, Fantasy",
+                rating: 8.5,
+                view_count: 900000
+            },
+            {
+                id: 6,
+                title: "Solo Leveling",
+                cover_image: "https://gg.asuracomic.net/storage/media/257722/conversions/01JF3DFZHDVHCNHVKXCGTD16KM-thumb-small.webp",
+                genres: "Action, Adventure, Fantasy",
+                rating: 9.8,
+                view_count: 850000
+            }
+        ];
+
+        function formatViewCount(views) {
+            if (views >= 1000000) {
+                return (views / 1000000).toFixed(1) + "M";
+            } else if (views >= 1000) {
+                return (views / 1000).toFixed(1) + "K";
+            } else {
+                return views;
+            }
+        }
+
+        function getStarRating(rating) {
+            const fullStars = Math.floor(rating / 2);
+            let stars = "";
+            for (let i = 0; i < 5; i++) {
+                if (i < fullStars) {
+                    stars += '<i class="fas fa-star"></i>';
+                } else {
+                    stars += '<i class="far fa-star"></i>';
+                }
+            }
+            return stars;
+        }
+
+        const comicList = document.getElementById("comicList");
+
+        comicsPopular.forEach(comic => {
+            const comicItem = document.createElement("div");
+            comicItem.className = "comic-item";
+            comicItem.innerHTML = `
+                <img src="${comic.cover_image}" class="comic-image" alt="${comic.title}">
+                <div class="comic-info">
+                    <a href="#" class="comic-title" title="${comic.title}">${comic.title}</a>
+                    <div class="comic-meta">${comic.genres}</div>
+                    <div class="comic-rating">
+                        ${getStarRating(comic.rating)} ${comic.rating}
+                    </div>
+                    <div class="comic-views">${formatViewCount(comic.view_count)}</div>
+                </div>
+            `;
+            comicList.appendChild(comicItem);
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

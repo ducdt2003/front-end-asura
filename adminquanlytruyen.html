@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 h-screen overflow-auto">
+  <div class="flex h-full">
+    <!-- Sidebar -->
+    <div class="w-64 bg-white shadow-md h-full">
+      <div class="p-4 font-bold text-xl border-b">Admin Panel</div>
+      <ul class="p-4 space-y-4">
+        <li class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 cursor-pointer">
+          <span>🏠</span><span>Tổng quan</span>
+        </li>
+        <li class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 cursor-pointer font-semibold">
+          <span>📚</span><span>Quản lý truyện</span>
+        </li>
+        <li class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 cursor-pointer">
+          <span>🛡️</span><span>Kiểm duyệt & Báo cáo</span>
+        </li>
+        <li class="flex items-center space-x-3 text-gray-700 hover:text-blue-600 cursor-pointer">
+          <span>📊</span><span>Thống kê</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="flex-1 p-6">
+      <h1 class="text-2xl font-bold mb-6">Quản lý truyện</h1>
+
+      <!-- Form thêm hoặc cập nhật truyện -->
+      <div class="bg-white p-6 rounded-xl shadow mb-8">
+        <h2 class="text-lg font-semibold mb-4">Thêm / Cập nhật truyện</h2>
+        <form class="space-y-4">
+          <div>
+            <label class="block mb-1 text-gray-600">Tiêu đề truyện</label>
+            <input type="text" class="w-full border border-gray-300 p-2 rounded-md" placeholder="Nhập tiêu đề" />
+          </div>
+          <div>
+            <label class="block mb-1 text-gray-600">Mô tả</label>
+            <textarea class="w-full border border-gray-300 p-2 rounded-md" rows="3" placeholder="Nhập mô tả truyện"></textarea>
+          </div>
+          <div>
+            <label class="block mb-1 text-gray-600">Thể loại</label>
+            <select class="w-full border border-gray-300 p-2 rounded-md">
+              <option>Hành động</option>
+              <option>Hài hước</option>
+              <option>Kinh dị</option>
+              <!-- Add more genres dynamically -->
+            </select>
+          </div>
+          <div>
+            <label class="block mb-1 text-gray-600">Tác giả</label>
+            <select class="w-full border border-gray-300 p-2 rounded-md">
+              <!-- Add authors dynamically -->
+              <option>Author A</option>
+              <option>Author B</option>
+            </select>
+          </div>
+          <div>
+            <label class="block mb-1 text-gray-600">Ảnh bìa</label>
+            <input type="file" class="w-full" />
+          </div>
+          <div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Lưu truyện</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Bảng danh sách truyện -->
+      <div class="bg-white p-6 rounded-xl shadow mb-8">
+        <h2 class="text-lg font-semibold mb-4">Danh sách truyện</h2>
+        <table class="w-full table-auto text-left">
+          <thead>
+            <tr class="bg-gray-100">
+              <th class="px-4 py-2">#</th>
+              <th class="px-4 py-2">Tiêu đề</th>
+              <th class="px-4 py-2">Thể loại</th>
+              <th class="px-4 py-2">Tác giả</th>
+              <th class="px-4 py-2">Hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-4 py-2">1</td>
+              <td class="px-4 py-2">Truyện A</td>
+              <td class="px-4 py-2">Hành động</td>
+              <td class="px-4 py-2">Tác giả A</td>
+              <td class="px-4 py-2 space-x-2">
+                <button class="text-blue-600 hover:underline">Thêm chương</button>
+                <button class="text-green-600 hover:underline">Chỉnh sửa</button>
+                <button class="text-red-600 hover:underline">Xóa</button>
+              </td>
+            </tr>
+            <tr class="border-t">
+              <td class="px-4 py-2">2</td>
+              <td class="px-4 py-2">Truyện B</td>
+              <td class="px-4 py-2">Hài hước</td>
+              <td class="px-4 py-2">Tác giả B</td>
+              <td class="px-4 py-2 space-x-2">
+                <button class="text-blue-600 hover:underline">Thêm chương</button>
+                <button class="text-green-600 hover:underline">Chỉnh sửa</button>
+                <button class="text-red-600 hover:underline">Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Form thêm chương -->
+      <div class="bg-white p-6 rounded-xl shadow">
+        <h2 class="text-lg font-semibold mb-4">Thêm chương mới cho truyện</h2>
+        <form class="space-y-4">
+          <div>
+            <label class="block mb-1 text-gray-600">Tên chương</label>
+            <input type="text" class="w-full border border-gray-300 p-2 rounded-md" placeholder="Nhập tên chương" />
+          </div>
+          <div>
+            <label class="block mb-1 text-gray-600">Nội dung chương</label>
+            <textarea class="w-full border border-gray-300 p-2 rounded-md" rows="8" placeholder="Nhập nội dung chương..."></textarea>
+          </div>
+          <div>
+            <label class="block mb-1 text-gray-600">Giá chương</label>
+            <input type="number" class="w-full border border-gray-300 p-2 rounded-md" placeholder="Nhập giá chương" />
+          </div>
+          <div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Thêm chương</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
